@@ -4,11 +4,10 @@ const nextConfig = {
   distDir: '.next',
   cleanDistDir: true,
   experimental: {
-    serverActions: true,
-    optimizeFonts: true, // cambiato da false a true
+    serverActions: {}, // Imposta come oggetto, come richiesto
     typedRoutes: true,
-    serverComponentsExternalPackages: [],
   },
+  serverExternalPackages: [], // Modifica applicata come suggerito per `serverComponentsExternalPackages`
   typescript: {
     ignoreBuildErrors: true
   },
@@ -25,7 +24,7 @@ const nextConfig = {
       }
     ],
   },
-  // Aggiungi questa configurazione per i font
+  // Configurazione per i font con intestazione di cache
   async headers() {
     return [
       {
@@ -37,8 +36,8 @@ const nextConfig = {
           },
         ],
       },
-    ]
+    ];
   }
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

@@ -1,25 +1,27 @@
 // src/middleware.ts
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  // Aggiungiamo il parametro request e il tipo
-  const response = NextResponse.next()
+  // Definiamo esplicitamente `request` e `response`
+  const response = NextResponse.next();
   
-  // Gestione esplicita della risposta
-  return response
+  // Aggiungi qui qualsiasi logica specifica per il middleware, utilizzando `request` se necessario
+  
+  // Restituiamo la risposta processata
+  return response;
 }
 
 export const config = {
   matcher: [
     /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - public folder
+     * Esegue il match su tutti i percorsi, eccetto quelli che iniziano con:
+     * - api (per le route API)
+     * - _next/static (file statici)
+     * - _next/image (file per l'ottimizzazione delle immagini)
+     * - favicon.ico (icona del sito)
+     * - public (cartella pubblica)
      */
     '/((?!api|_next/static|_next/image|favicon.ico|public).*)',
   ],
-}
+};
